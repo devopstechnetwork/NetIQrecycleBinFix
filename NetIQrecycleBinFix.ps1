@@ -26,11 +26,11 @@ foreach($item in $users){
 	Get-ADGroup -Filter {name -eq $ObjGUID} -SearchBase "OU=NetIQRecycleBin,DC=dolby,DC=net" -Properties description |
 	
 	ForEach-Object {
-	$result = New-Object PSObject
-    Add-Member -input $result NoteProperty 'Group Name' $_.Name
-	Add-Member -input $result NoteProperty 'Distinguished Name' $_.DistinguishedName
-	Add-Member -input $result NoteProperty 'Linked User Name' $Name.name
-	Add-Member -input $result NoteProperty 'Linked User Login' $Name.SamAccountName
-    Write-Output $result
+		$result = New-Object PSObject
+	    Add-Member -input $result NoteProperty 'Group Name' $_.Name
+		Add-Member -input $result NoteProperty 'Distinguished Name' $_.DistinguishedName
+		Add-Member -input $result NoteProperty 'Linked User Name' $Name.name
+		Add-Member -input $result NoteProperty 'Linked User Login' $Name.SamAccountName
+	    Write-Output $result
 	}
 }
